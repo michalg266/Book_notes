@@ -1,0 +1,385 @@
+/* all sites css */
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.home_body, .submit_body, .review_body {
+    margin: 0;
+    padding: 0;
+    background-image: url(./pictures/home_background.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.fontdef {
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* end of all sites css */
+
+.submit_body {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.submitform {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 600px;
+}
+
+
+.submit_cover {
+    display: flex;
+    justify-content: center;
+}
+
+.submit_cover img {
+    height: 150px;
+    width: auto;
+}
+
+.radio_buttons {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.362);
+}
+
+
+
+.page_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 90%;
+}
+
+.header, .footer {
+    height: 5%;
+}
+
+.booklist {
+    width: 87%;
+    margin: 15px;
+    margin-left: 60px;
+}
+
+
+.bookelement * {
+    margin: 10px;
+    padding: 10px;
+}
+
+.bookelement .cover_column {
+    width: auto;
+    height: 90%;
+    margin: 0px;
+    padding-left: 10px;
+    align-self: center;
+}
+
+.book_with_button {
+    display: flex;
+}
+
+.bookelement {
+    display: flex;
+    justify-content: start;
+    width: 95%;
+    height: 125px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-items: stretch;
+    flex-shrink: 0;
+}
+
+.bookelement .review_column {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bookelement:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.delete_form {
+    right: 0px;
+    width: 4%;
+    height: 35%;
+    align-self: center;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    border-radius: 10px;
+    display: none;
+    justify-self: end;
+}
+
+.delete_button {
+    width: 100%;
+    height: auto;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 8px;
+}
+
+.delete_button img {
+    width: 100%;
+    height: auto;
+}
+
+.book_with_button:hover .delete_form {
+    display: flex;
+}
+
+.delete_button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.description {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+}
+
+.description * {
+    margin: 0px;
+    padding: 0px;
+}
+
+.desc_cover {
+    margin-left: 5px;
+    text-align: center;
+}
+
+.desc_author {
+
+    text-align: center;
+    margin-left: 80px;
+}
+
+.desc_title {
+    text-align: center;
+    margin-left: 140px;
+}
+
+.desc_review {
+    text-align: center;
+    margin-left: 305px;
+}
+
+.desc_rating {
+    text-align: center;
+    margin-left: 220px;
+}
+
+.desc_date {
+    text-align: center;
+    margin-left: 45px;
+}
+
+
+/* width of columns for book reviews */
+.cover_column {
+    margin-right: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.author_column {
+    width: 15%;
+    text-align: center;
+}
+
+.title_column {
+    width: 20%;
+    text-align: left;
+}
+
+.review_column {
+    width: 50%;
+    text-align: left;
+}
+
+.rating_column {
+    width: 5%;
+    text-align: center;
+}
+
+.date_column {
+    width: 10%;
+    text-align: center;
+}
+
+.description * {
+    height: 50px;
+}
+
+.bookelement * {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.options {
+    width: 700px;
+    display: flex;
+    justify-content: center;
+}
+
+.sorting, .adding {
+    margin: 50px;
+    height: 100px;
+}
+
+/* review page css */
+.review_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100vh;
+}
+
+.sp_review_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 80%;
+    flex-grow: 1;
+    position: relative;
+}
+
+
+.sp_review_title {
+    font-size: 30px;
+    font-weight: 500;
+    margin: 10px;
+}
+
+.sp_review_cover {
+    height: 150px;
+    margin: 15px;
+}
+
+.sp_review_cover img {
+    height: 100%;
+    width: auto;
+}
+
+.sp_review_review {
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.15);
+    margin: 10px;
+    border-radius: 10px;
+    width: 90%;
+    height: 250px;
+    padding: 10px;
+    border: 0px;
+}
+
+.sp_review_textarea {
+    width: 100%;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    height: 250px;
+    resize: none;
+    border: 0px;
+    padding: 0px;
+    outline: none;
+}
+
+.sp_review_review:hover {
+    cursor: pointer;
+}
+
+
+.sp_review_rating {
+    position: absolute;
+    bottom: 20px;
+}
+
+.sp_review_date {
+    position: absolute;
+    bottom: 0px;
+}
+
+/* header and footer */
+.header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 35px;
+    width: 100%;
+}
+
+.header_div {
+    background-color: rgba(0, 0, 0, 0.0);
+    display: flex;
+    width: 8%;
+    height: 80%;
+    margin-top: 8px;
+    margin-left: 20px;
+    margin-bottom: 2px;
+}
+
+.header_button {
+    height: 25px;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+}
+
+.header_button:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.footer {
+    justify-self: end;
+    display: flex;
+    justify-content: left;
+    align-items: bottom;
+    justify-self: end;
+    height: 20px;
+    width: 100%;
+}
+
+.footer_div {
+    text-align: left;
+    text-align: bottom;
+    width: 100%;
+    height: 20px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+

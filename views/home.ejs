@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book notes</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="home_body fontdef">
+    <div class="header">
+        <%-include("header.ejs") %>
+    </div>
+
+    <!-- actual content start -->
+    <div class="page_content">
+
+        <div class="intro">
+            <h1>Welcome to the booknotes</h1>
+            <p>place where you can keep track of what you read</p>
+        </div>
+        <div class="booklist">
+            <!-- to be made by script based on stuff in database -->
+             <div class="description">
+                <h2 class="desc_cover">Cover</h2>
+                <h2 class="desc_author">Author</h2>
+                <h2 class="desc_title">Title</h2>
+                <h2 class="desc_review">Review</h2>
+                <h2 class="desc_rating">Rating</h2>
+                <h2 class="desc_date">Date</h2>
+            </div>
+            <% books.forEach(book => { %>
+                <div class="book_with_button">
+                    <div class="bookelement" onclick="openReview(<%= book.id %>)">
+                        <img class="cover_column" src="data:image/jpeg;base64, <%= book.cover %>">
+                        <h2 class="author_column"> <%= book.author %> </h2>
+                        <h2  class="title_column"> <%= book.title%></h2>
+                        <p   class="review_column"> <%= book.review %> </p>
+                        <h3  class="rating_column"> <%= book.rating%> </h3>
+                        <h3  class="date_column"> <%= book.revdate %> </h3>
+                    </div>
+                    <form class="delete_form" action="delete/<%= book.id %>" method="POST">
+                        <button class="delete_button"><img src="pictures/delete-button.svg" alt="Delete button" ></button>
+                    </form>
+  
+                </div>
+            <% }); %>
+
+
+            <!-- till here to be made by script based on stuff in database -->
+        </div>
+
+        <div class="options">
+            <form class="sorting" action="sort" method="POST">
+                <h4>Sort by</h4>
+                <button type="submit" name="sorting" value="rating">Rating</button>
+                <button type="submit" name="sorting" value="revdate">Date</button>
+            </form>
+            <div class="adding">
+                <h4>Add new book review</h4>
+                <form action="add" method="POST">
+                    <label for="isbn">Enter ISBN</label>
+                    <input type="text" id="add_input" name="addISBN" oninput="validateInput(event)" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+     <!-- actual content end-->
+
+
+    <div class="footer">
+        <%-include("footer.ejs")%>
+    </div>
+
+<script>
+    function validateInput(event) {
+        event.target.value = event.target.value.replace(/\D/g, '');
+    }
+
+    function openReview(reviewID) {
+        window.location.href = `/review/${reviewID}`
+    }
+</script>
+
+    
+    
+</body>
+</html>

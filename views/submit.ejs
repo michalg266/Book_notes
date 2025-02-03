@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="submit_body fontdef">
+    <div class="header">
+        <%-include("header.ejs") %>
+    </div>
+    <h1>Submit a new book review</h1>
+
+    <form action="newReview" method="POST" class="submitform">
+        <div class="submit_cover">
+            <img src="/covers">
+        </div>
+        <label>Author</label>
+        <input type="text" name="addAuthor" required>
+        <label>Title</label>
+        <input type="text" name="addTitle" required>
+        <label>Your review</label>
+        <input type="text" id="review" name="addReview" required>
+        <label>Your rating</label>
+        <!-- radio buttons to choose rating -->
+         
+        <div class="radio_buttons">
+            <label>
+                <input type="radio" name="addRating" value="1" required>1            
+            </label>
+            <label>
+                <input type="radio" name="addRating" value="2">2            
+            </label>
+            <label>
+                <input type="radio" name="addRating" value="3">3            
+            </label>
+            <label>
+                <input type="radio" name="addRating" value="4">4            
+            </label>
+            <label>
+                <input type="radio" name="addRating" value="5">5            
+            </label>
+        </div>
+        <button type="submit">Submit your review</button>
+    </form>
+
+    <div class="footer">
+        <%-include("footer.ejs")%>
+    </div>
+    
+</body>
+</html>

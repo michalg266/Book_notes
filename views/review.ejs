@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/main.css" >
+</head>
+<body class="review_body fontdef">
+    <div class="header">
+        <%-include("header.ejs") %>
+    </div>
+
+    <div class="sp_review_box">
+        <div class="sp_review_title"><%= review[0].title %></div>
+        <div class="sp_review_author"><%= review[0].author %></div>
+        <div class="sp_review_cover"><img src="data:image/jpeg;base64, <%= review[0].cover %>" alt="Book Cover"></div>
+
+        <div class="sp_review_review" ondblclick="editReview(this, <%= review[0].id %>)"><%= review[0].review %></div>
+
+
+        <div class="sp_review_rating">Rating: <%= review[0].rating %> out of 5</div>
+        <div class="sp_review_date">Added on: <%= review[0].revdate %></div>
+
+
+    </div>
+    
+    <div class="footer">
+        <%-include("footer.ejs")%>
+    </div>
+
+    <script>
+        function editReview(inputVAR, reviewID) {
+            if (inputVAR.querySelector("textarea")) return;
+            let currentReview = inputVAR.innerHTML;
+            let textRegion = document.createElement("textarea");
+            textRegion.classList.add("sp_review_textarea");
+            textRegion.value = currentReview;
+            textRegion.setAttribute("spellcheck", "false");
+
+            inputVAR.innerHTML = "";
+            inputVAR.appendChild(textRegion);
+            textRegion.focus();
+
+            // function called when some event listener is hit
+            function closeEditing() {
+                if ((!inputVAR.contains(event.target) && inputVAR.querySelector("textarea")) || (event.key === "Enter"  && inputVAR.querySelector("textarea"))) {
+                let updatedReview = textRegion.value;
+                    console.log(updatedReview);
+                    inputVAR.removeChild(textRegion);
+                    inputVAR.innerHTML = updatedReview;
+     
+
+                    fetch("/updateReview", {
+                        method: "PATCH",
+                        headers: {"Content-type": "application/json"},
+                        body: JSON.stringify({
+                            updatedReview: updatedReview,
+                            reviewIdecko: reviewID}),
+                    });
+
+                    document.removeEventListener("click", closeEditing);
+                    document.removeEventListener("keydown", closeEditing);
+            }};
+
+            // adding event listeners and running the closeEditing funtion when they are hit
+            document.addEventListener("click", closeEditing);
+            document.addEventListener("keydown", closeEditing);
+
+
+        }
+    </script>
+    
+</body>
+</html>
